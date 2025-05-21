@@ -4,6 +4,14 @@ This repository documents my journey learning concurrent programming in C++. I i
 
 ## What I Learned
 
+### Producer-Consumer Simulation
+A classic concurrency pattern implementation using condition variables. Key learnings:
+- Condition variables for thread synchronization
+- Mutex-based thread-safe queues
+- Proper thread signaling and notification
+- Thread-safe console output
+- Graceful shutdown of concurrent operations
+
 ### Lock-Free Queue
 My first attempt at implementing a lock-free data structure. Key learnings:
 - How atomic operations work in C++
@@ -21,6 +29,15 @@ A practical implementation that taught me:
 - Resource management and graceful shutdown
 
 ## Code Examples
+
+### Producer-Consumer
+```cpp
+// Classic producer-consumer pattern with condition variables
+BoundedBuffer<int> buffer(1000);  // Thread-safe bounded buffer
+std::thread producer(producer, std::ref(buffer));  // Producer thread
+std::thread consumer(consumer, std::ref(buffer));  // Consumer thread
+// Automatic synchronization using condition variables
+```
 
 ### Lock-Free Queue
 ```cpp
@@ -57,3 +74,4 @@ I'm planning to:
 - Implement performance benchmarks
 - Add unit tests
 - Explore more lock-free algorithms
+- Add more concurrent programming patterns
